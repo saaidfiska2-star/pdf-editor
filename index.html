@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محرر PDF - تعديل ملفات PDF مجاناً</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="https://mozilla.github.io/pdf.js/build/pdf.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📝 محرر PDF</h1>
+            <p>قم بتحرير ملفات PDF مجاناً وبسهولة</p>
+        </header>
+
+        <div class="upload-section" id="uploadSection">
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-content">
+                    <div class="upload-icon">📁</div>
+                    <h3>اسحب ملف PDF هنا أو انقر للاختيار</h3>
+                    <p>الحد الأقصى: 10 ميجابايت</p>
+                    <input type="file" id="fileInput" accept=".pdf" hidden>
+                    <button class="btn-primary" onclick="document.getElementById('fileInput').click()">
+                        اختيار ملف PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="editor-section" id="editorSection" style="display: none;">
+            <div class="toolbar">
+                <div class="tool-group">
+                    <button class="tool-btn" id="textTool" title="إضافة نص">
+                        <span>📝</span> نص
+                    </button>
+                    <button class="tool-btn" id="drawTool" title="الرسم">
+                        <span>✏️</span> رسم
+                    </button>
+                    <button class="tool-btn" id="highlightTool" title="تمييز">
+                        <span>🖍️</span> تمييز
+                    </button>
+                    <button class="tool-btn" id="shapeTool" title="أشكال">
+                        <span>🔺</span> أشكال
+                    </button>
+                </div>
+                
+                <div class="tool-group">
+                    <label>الخط:</label>
+                    <select id="fontSize">
+                        <option value="12">12</option>
+                        <option value="14" selected>14</option>
+                        <option value="16">16</option>
+                        <option value="18">18</option>
+                        <option value="20">20</option>
+                        <option value="24">24</option>
+                    </select>
+                    
+                    <label>اللون:</label>
+                    <input type="color" id="colorPicker" value="#000000">
+                </div>
+
+                <div class="tool-group">
+                    <button class="btn-secondary" id="undoBtn" title="تراجع">
+                        ↶ تراجع
+                    </button>
+                    <button class="btn-secondary" id="clearBtn" title="مسح الكل">
+                        🗑️ مسح
+                    </button>
+                </div>
+
+                <div class="tool-group">
+                    <button class="btn-success" id="downloadBtn">
+                        💾 تحميل PDF
+                    </button>
+                    <button class="btn-secondary" id="newFileBtn">
+                        📄 ملف جديد
+                    </button>
+                </div>
+            </div>
+
+            <div class="editor-container">
+                <div class="page-controls">
+                    <button id="prevPage">⏮️ السابق</button>
+                    <span id="pageInfo">صفحة 1 من 1</span>
+                    <button id="nextPage">التالي ⏭️</button>
+                    <button id="addPage" class="btn-primary">➕ إضافة صفحة</button>
+                </div>
+                
+                <div class="canvas-container">
+                    <canvas id="pdfCanvas" style="border: 1px solid #ddd;"></canvas>
+                    <canvas id="drawingCanvas" style="position: absolute; top: 0; left: 0; border: 1px solid #ddd;"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="features">
+            <h2>✨ المميزات</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <h3>آمن ومحمي</h3>
+                    <p>جميع الملفات تتم معالجتها محلياً في متصفحك</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3>سريع وسهل</h3>
+                    <p>تحرير فوري بدون تحميل برامج إضافية</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💰</div>
+                    <h3>مجاني تماماً</h3>
+                    <p>استخدم جميع المميزات مجاناً بدون حدود</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <h3>يعمل على جميع الأجهزة</h3>
+                    <p>متوافق مع الهواتف والحواسيب واللوحية</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 محرر PDF. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
